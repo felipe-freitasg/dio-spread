@@ -1,0 +1,102 @@
+# Atribuição e Referencia em JAva
+
+- No java em relação aos tipos primitivos, são trabalhados os valores  atribuidos às variáveis criadas na memória
+- No java em relação aos objetos, são trabalhados com a referência do local em memória que está os valores do objeto
+
+# Conceito de Nó e encadeamento de Nó
+
+- É um espaço em memória que armazena tanto o dado que queremos armazenar quando a referência a um próximo nó
+
+- o ultimo aponta para null
+
+# Generics
+
+- Por que se usa generics : 
+	- Evitar casting excessivo
+	- Evitar codigos redundantes
+	- Encontrar erros em tempo de compilação
+	- Introduzido desde o Java SE 5.0
+
+- Wildcards(curinga)
+	- Unknown Wildcards -> ilimitado, o mais genérico possível
+	- Bounded Wildcards -> (Upper Bounded / Lower Bounded)
+
+
+- Unknown Wildcards
+
+public void imprimeLista(List<?> lista){
+	for(Object obj: lista){
+		System.out.println(obj);
+
+	}
+
+
+}
+
+List<Aluno> minhaLista = new List<Aluno>();
+imprimeLista(minhaLista);
+
+
+
+
+
+- UpperBounded Wildcard
+
+public void imprimeLista(List<? extends Pessoa> listPessoas){
+        for(Pessoa p: listaPessoas){
+                System.out.println(p);
+
+        }
+
+
+}
+
+List<Aluno> minhaLista = new List<Aluno>();
+imprimeLista(minhaLista);	
+
+** Em UpperBounded , no exemplo acima, só consigo gerar lista de pessoas e da classe que herda de pessoas
+
+
+
+
+- LowerBounded Wildcard
+
+public void imprimeLista(List<? super Pessoa> listPessoas){
+        for(Pessoa p: listaPessoas){
+                System.out.println(p);
+
+        }
+
+
+}
+
+List<Aluno> minhaLista = new List<Aluno>();
+imprimeLista(minhaLista);
+
+** Em LowerBounded , no exemplo acima, não consigo gerar lista de qualquer classe que herde da classe Pessoa, só consigo gerar da classe Pessoa para cima
+
+- CONVENÇÃO
+
+	- K para "key", exemplo: Map<k,v>
+	- V para "value", exemplo: Map<k,v>
+	- E para "element", exemplo: List<E>
+	- T para "Type", exemplo: Collections#addAll
+	- ? quando genérico
+
+
+
+# Refatoração da classe Nó
+
+https://github.com/jrdutra/estruturaDeDadosJavaDio/tree/main/apresentacoes/Aula1
+
+
+
+
+
+
+
+
+
+
+
+
